@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <item
+        android:id="@+id/nav_spinner"
+        android:title=""
+        app:actionLayout="@layout/item_spinner" />
+
+    <item android:title="TELEFON">
+        <menu>
+            <item
+                android:id="@+id/nav_smart_phone"
+                android:icon="@drawable/nav_smart_phone"
+                android:title="Akıllı Telefon"
+                android:titleCondensed="akilli-telefonlar/" />
+            <item
+                android:id="@+id/nav_phone"
+                android:icon="@drawable/nav_phone"
+                android:title="Tuşlu Telefon"
+                android:titleCondensed="tuslu-telefon/" />
+            <item
+                android:id="@+id/nav_radio_phone"
+                android:icon="@drawable/nav_radio_phone"
+                android:title="Telsiz Telefon"
+                android:titleCondensed="telsiz-telefon/" />
+            <item
+                android:id="@+id/nav_smart_watch"
+                android:icon="@drawable/nav_smart_watch"
+                android:title="Akıllı Saat"
+                android:titleCondensed="akilli-saat/" />
+            <item
+                android:id="@+id/nav_powerbank"
+                android:icon="@drawable/nav_powerbank"
+                android:title="powerbank"
+                android:titleCondensed="powerbank/" />
+        </menu>
+    </item>
+
+    <item android:title="TV/GÖRÜNTÜ/SES">
+        <menu>
+            <item
+                android:id="@+id/nav_television"
+                android:icon="@drawable/nav_television"
+                android:title="Televizyon"
+                android:titleCondensed="televizyon/" />
+            <item
+                android:id="@+id/nav_speaker"
+                android:icon="@drawable/nav_speaker"
+                android:title="Ses Sistemi"
+                android:titleCondensed="ses-sistemi/" />
+            <item
+                android:id="@+id/nav_transmitter"
+                android:icon="@drawable/nav_transmitter"
+                android:title="Görüntü ve Ses Aktarıcı"
+                android:titleCondensed="goruntu-ve-ses-aktarici/" />
+            <item
+                android:id="@+id/nav_receiver"
+                android:icon="@drawable/nav_receiver"
+                android:title="Uydu Alıcısı"
+                android:titleCondensed="uydu-alicisi/" />
+            <item
+                android:id="@+id/nav_monitor"
+                android:icon="@drawable/nav_monitor"
+                android:title="Monitor"
+                android:titleCondensed="monitor/" />
+            <item
+                android:id="@+id/nav_media_player"
+                android:icon="@drawable/nav_media_player"
+                android:title="Medya Oynatıcı"
+                android:titleCondensed="medya-oynatici/" />
+            <item
+                android:id="@+id/nav_ip_camera"
+                android:icon="@drawable/nav_ip_camera"
+                android:title="IP Kamera"
+                android:titleCondensed="ip-kamera/" />
+            <item
+                android:id="@+id/nav_drone"
+                android:icon="@drawable/nav_drone"
+                android:title="Drone"
+                android:titleCondensed="drone/" />
+            <item
+                android:id="@+id/nav_projection"
+                android:icon="@drawable/nav_projection"
+                android:title="Projeksiyon Makinesi"
+                android:titleCondensed="projeksiyon-makinesi/" />
+            <item
+                android:id="@+id/nav_headphones"
+                android:icon="@drawable/nav_headphones"
+                android:title="Kulaklık"
+                android:titleCondensed="kulaklik/" />
+            <item
+                android:id="@+id/nav_photo_camera"
+                android:icon="@drawable/nav_photo_camera"
+                android:title="Fotoğraf Makinesi"
+                android:titleCondensed="fotograf-kamera/" />
+        </menu>
+    </item>
+</menu>
