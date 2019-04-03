@@ -31,6 +31,8 @@ public class LastUrl {
 
     public String nextPage() {
 
+        Log.d(TAG, "nextPage: "+String.format("subdomain -> %s "));
+        subDomain = (subDomain.endsWith("/"))? subDomain : subDomain.substring(0,subDomain.length()-1);
         return String.format("%s%s/%s", domain, subDomain, String.valueOf(++page));
     }
 

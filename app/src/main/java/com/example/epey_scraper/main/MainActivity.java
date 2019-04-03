@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -44,21 +43,18 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerElements;
-    NavigationView navigationView;
-    List<String> productNameList;
-    boolean isScrolling;
-    Spinner productSpinner;
-    LastUrl lastUrl = new LastUrl();
-    MainAdapter mainAdapter;
+    private NavigationView navigationView;
+    private List<String> productNameList;
+    private boolean isScrolling;
+    private LastUrl lastUrl = new LastUrl();
+    private MainAdapter mainAdapter;
     private List<EpeyElement> epeyElementList = new ArrayList<>();
     private ProgressDialog progressDialog;
     private boolean pressedOnceForExit;
     private DrawerLayout drawer;
-    private boolean canGoToNextPage = true;
+
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -84,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
 
-        productSpinner = findViewById(R.id.content_spinner);
+        Spinner productSpinner = findViewById(R.id.content_spinner);
         mainAdapter = new MainAdapter(MainActivity.this, epeyElementList);
 
         drawer = findViewById(R.id.drawer_layout_main);
@@ -92,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        recyclerElements = findViewById(R.id.recycler_view_content_main);
+        RecyclerView recyclerElements = findViewById(R.id.recycler_view_content_main);
         recyclerElements.setLayoutManager(new GridLayoutManager(MainActivity.this, 3));
         recyclerElements.setAdapter(mainAdapter);
         recyclerElements.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -107,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
-                if (isLastItemDisplay(recyclerView) && canGoToNextPage) {
+                if (isLastItemDisplay(recyclerView)) {
                     isScrolling = false;
                     new EpeyFetcher(lastUrl.nextPage(), false).execute();
                 }
@@ -122,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
                 lastUrl.setDomain("https://www.epey.com/" + menuItem.getTitleCondensed().toString());
                 setTitle(menuItem.getTitle());
                 new EpeyFetcher(lastUrl.getDomain(), true).execute();
-                canGoToNextPage = true;
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
             }
@@ -257,7 +252,6 @@ public class MainActivity extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     if (drawer.isDrawerOpen(GravityCompat.START)) {
                         drawer.closeDrawer(GravityCompat.START);
-                        canGoToNextPage = false;
                         new EpeyFetcher(lastUrl.gotoCategoryPage(productNameList.get(position)), true).execute();
                     }
                 }

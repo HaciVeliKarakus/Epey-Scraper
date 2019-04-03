@@ -6,10 +6,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
     android:clickable="true"
-
     android:foreground="?android:attr/selectableItemBackground"
-    android:onClick="OnClickCardView"
-    cardview:cardCornerRadius="4dp">
+    cardview:cardCornerRadius="4dp"
+    android:focusable="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +20,8 @@
             android:id="@+id/element_img"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:contentDescription="@string/element_image" />
 
         <TextView
             android:id="@+id/element_name"
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Element Price"
+            android:text="@string/element_price"
             android:textAlignment="center"
             android:textColor="@color/colorOrange"
             android:textSize="14sp" />

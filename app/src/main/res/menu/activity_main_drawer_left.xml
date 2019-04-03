@@ -10,7 +10,7 @@
         android:title=""
         app:actionLayout="@layout/item_spinner" />
 
-    <item android:title="TELEFON">
+    <item android:title="@string/telefon">
         <menu>
             <item
                 android:id="@+id/nav_smart_phone"

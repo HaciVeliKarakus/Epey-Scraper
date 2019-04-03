@@ -85,11 +85,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         ImageView elementImage = finder(R.id.element_img);
         CardView cardView = finder(R.id.item_cardview);
 
-        /**
-         * @param itemView : using like mContext
-         *                 <p>
-         *                 find every view in recyclerElements item
-         */
+
         ViewHolder(@NonNull final View itemView) {
             super(itemView);
 
